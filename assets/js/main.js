@@ -413,7 +413,7 @@ async function apiRequest(){
         console.log(data)
         document.getElementById('festival').innerText = festivalName;
         document.getElementById('date').innerText = data.date;
-        document.getElementById('genre').innerText = data.genre
+        document.getElementById('genre').innerText = data.genre;
         document.getElementById('description').innerText = data.description;
         document.getElementById('attendance').innerText = data.attendance;
         document.getElementById('website').innerText = data.website;
