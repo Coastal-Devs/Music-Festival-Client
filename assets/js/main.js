@@ -395,16 +395,32 @@
 })(jQuery);
 
 //start
-document.getElementById('festivalDiscover').addEventListener('click', getEvents);
+document.getElementById('festivalDiscover').addEventListener('click', apiRequest);
 
-const festivalName = document.getElementById('festivalName')
-const festivalDate = document.getElementById('festivalDate')
+// const festivalName = document.getElementById('festivalName')
+// const festivalDate = document.getElementById('festivalDate')
 const festivalGenre = document.getElementById('festivalGenre')
 const festivalDiscover = document.getElementById('festivalDiscover')
 
-function getEvents(){
-	console.log(festivalName.value)
-	
+//API Request
+async function apiRequest(){
+	const festivalGenre = document.getElementById('festivalGenre').value.toLowerCase()
+    
+    try{
+        const response = await fetch(`https://music-festival-info.herokuapp.com/api/${festivalName}`)
+        const data = await response.json()
+
+        console.log(data)
+        document.getElementById('festival').innerText = festivalName;
+        document.getElementById('date').innerText = data.date;
+        document.getElementById('genre').innerText = data.genre
+        document.getElementById('description').innerText = data.description;
+        document.getElementById('attendance').innerText = data.attendance;
+        document.getElementById('website').innerText = data.website;
+        document.getElementById('image').src = data.image;
+    }catch(error){
+        console.log(error)
+    }
 }
 
 
