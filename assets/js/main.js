@@ -395,10 +395,16 @@
 })(jQuery);
 
 //start
-document.getElementById('discoverEvent').addEventListener('click', getEvents);
+document.getElementById('festivalDiscover').addEventListener('click', getEvents);
+
+const festivalName = document.getElementById('festivalName')
+const festivalDate = document.getElementById('festivalDate')
+const festivalGenre = document.getElementById('festivalGenre')
+const festivalDiscover = document.getElementById('festivalDiscover')
 
 function getEvents(){
-	console.log('it works!')
+	console.log(festivalName.value)
+	
 }
 
 
